@@ -21,7 +21,7 @@ public class GUI extends Application{
 
         Convert conversion = new Convert();
         GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10,10,10,10));
+        grid.setPadding(new Insets(10));
         grid.setVgap(10);
 
         convert = new Button("Convert");
@@ -44,10 +44,10 @@ public class GUI extends Application{
         grid.getChildren().addAll(decimal, binary, binaryLabel, decimalLabel, convert);
 
         convert.setOnAction(e -> {
-            if(decimal.getText().length()>0 && binary.getText().length() == 0){
+            if(!decimal.getText().isEmpty() && binary.getText().isEmpty()){
                 binary.setText(conversion.decimalToBinary(Integer.parseInt(decimal.getText())));
             }
-            else if(binary.getText().length()>0 && decimal.getText().length() == 0){
+            else if(!binary.getText().isEmpty() && decimal.getText().isEmpty()){
                 decimal.setText(conversion.binaryToDecimal(Integer.parseInt(binary.getText())));
             }
         });
