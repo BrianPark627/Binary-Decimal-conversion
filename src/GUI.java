@@ -44,7 +44,7 @@ public class GUI extends Application{
         grid.getChildren().addAll(decimal, binary, binaryLabel, decimalLabel, convert);
 
         convert.setOnAction(e -> {
-            if(Qdecimal.getText().isEmpty() && binary.getText().isEmpty()){
+            if(!decimal.getText().isEmpty() && binary.getText().isEmpty()){
                 binary.setText(conversion.decimalToBinary(Integer.parseInt(decimal.getText())));
             }
             else if(!binary.getText().isEmpty() && decimal.getText().isEmpty()){
